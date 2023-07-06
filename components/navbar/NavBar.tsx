@@ -1,10 +1,11 @@
+import { getCurrentUser } from '@/lib/session';
 import NavLinkImage from './navbarDetail/NavLinkImage'
 import NavLinkLists from './navbarDetail/NavLinkLists'
 import UserSession from './navbarDetail/session/UserSession'
 
 
-const NavBar = () => {
-  const session = {}
+const NavBar = async () => {
+  const session = await getCurrentUser();
 
   return (
     <nav className="flexBetween navbar">
