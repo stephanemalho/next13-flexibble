@@ -1,7 +1,6 @@
 import { getCurrentUser } from '@/lib/session';
-import NavLinkImage from './navbarDetail/NavLinkImage'
-import NavLinkLists from './navbarDetail/NavLinkLists'
 import UserSession from './navbarDetail/session/UserSession'
+import Links from './navbarDetail/Links';
 
 
 const NavBar = async () => {
@@ -9,10 +8,7 @@ const NavBar = async () => {
 
   return (
     <nav className="flexBetween navbar">
-      <div className="flex-1 flexStart gap-10">
-        <NavLinkImage />
-        <NavLinkLists />
-      </div>
+      <Links />
       <UserSession session={session} />
     </nav>
   )

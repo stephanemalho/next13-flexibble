@@ -7,14 +7,16 @@ const UserSession = ({ session }: any) => {
     <div className="flexCenter gap-4">
       {session?.user ? (
         <>
-          {session?.user.image && (
-            <Image
-              src={session?.user.image}
-              alt={session.user.name}
-              width={40}
-              height={40}
-              className="rounded-full"
-            />)}
+          {session?.user?.image && (
+            <Link href={`/profile/${session?.user?.id}`}>
+              <Image
+                src={session.user.image}
+                alt={session.user.name}
+                width={40}
+                height={40}
+                className="rounded-full"
+              />
+            </Link>)}
           <Link href="/create-project">
             ShareWork
           </Link>

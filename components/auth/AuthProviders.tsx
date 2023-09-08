@@ -14,6 +14,7 @@ type Provider = {
 type Providers = Record<string, Provider>
 
 const AuthProviders = () => {
+  const [providers, setProviders] = useState<Providers | null>(null)
 
   useEffect(() => {
     const fetchProviders = async () => {
@@ -25,17 +26,16 @@ const AuthProviders = () => {
     fetchProviders()
   }, [])
 
-  const [providers, setProviders] = useState< Providers | null >(null)
-    if(providers) {
-      return (
-        <div>
-      {Object.values(providers).map((provider: Provider, i) => (
-        <button key={i} onClick={() => signIn(provider?.id)}>{provider.id}</button>
-      ))}
-    </div>
-      )
-    }
-  
+  if (providers) {
+    return (
+      <div>
+        {Object.values(providers).map((provider: Provider, i) => (
+          <button key={i} onClick={() => signIn(provider?.id)}>{provider.id}</button>
+        ))}
+      </div>
+    )
+  }
+
 }
 
 export default AuthProviders
